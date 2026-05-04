@@ -21,8 +21,16 @@ if __name__ == "__main__":
     logger.info("Road network: %d edges → %s", len(roads), DATA_INTERIM / "roads_clean.gpkg")
 
     logger.info("Extracting cycling infrastructure...")
-    cycling = extract_cycling_infrastructure(roads)
+    # load_and_project the full roads (with cycleway tags) before filtering
+    roads_full = load_and_project(DATA_RAW / "roads.graphml", CRS_METRIC)
+    cycling = extract_cycling_infrastructure(roads_full)
     cycling.to_file(DATA_INTERIM / "cycling_clean.gpkg", driver="GPKG")
-    logger.info("Cycling infrastructure: %d edges → %s", len(cycling), DATA_INTERIM / "cycling_clean.gpkg")
+    logger.info(
+        "Cycling infrastructure: %d edges (%d dedicated, %d lane) → %s",
+        len(cycling),
+        (cycling["infra_type"] == "dedicated").sum(),
+        (cycling["infra_type"] == "lane").sum(),
+        DATA_INTERIM / "cycling_clean.gpkg",
+    )
 
     print(f"Clean data saved to {DATA_INTERIM}")
