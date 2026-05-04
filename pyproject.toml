@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "bike-city-audit-innsbruck"
+version = "0.1.0"
+description = "Geospatial audit of Innsbruck cycling infrastructure vs. road network"
+requires-python = ">=3.11"
+dependencies = [
+    "osmnx",
+    "geopandas",
+    "shapely",
+    "folium",
+    "scikit-learn",
+    "matplotlib",
+    "seaborn",
+    "pandas",
+    "numpy",
+    "pyarrow",
+    "jupyter",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["bike_city_innsbruck*"]

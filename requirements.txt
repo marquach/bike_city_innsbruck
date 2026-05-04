@@ -1,0 +1,11 @@
+osmnx
+geopandas
+shapely
+folium
+scikit-learn
+matplotlib
+seaborn
+pandas
+numpy
+pyarrow
+jupyter

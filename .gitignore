@@ -1,1 +1,27 @@
+# Data — raw and interim are large OSM files, never commit
+data/raw/
+data/interim/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secrets
+.env
+
+# macOS
+.DS_Store
+
+# Worktrees
 .worktrees/
