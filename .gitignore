@@ -20,6 +20,9 @@ env/
 # Secrets
 .env
 
+# osmnx HTTP cache
+cache/
+
 # macOS
 .DS_Store
 
